@@ -1,16 +1,17 @@
+JUNIT_DIR?=junit_reports
+FEATURES_DIR?=features
+
 run_all_in_parallel:
-	make -j test_iPhone_Simulator_9.0 test_iPhone_6_8.4 test_iPhone_6_Plus_8.0
+	make -j test_iphone6_8.0_real_device test_iphone6_8.4_simulator
 
-test_iPhone_Simulator_9.0:
-	deviceName="iPhone Simulator" platformVersion=9.0 \
+test_iphone6_8.0_real_device:
+	deviceName='iPhone 6 Device' platformVersion='8.0' platformName=iOS \
+		app='sauce-storage:TestApp-iphoneos.app.zip' \
 		make parallel_split_test
 
-test_iPhone_6_8.4:
-	deviceName="iPhone 6" platformVersion=8.4 \
-		make parallel_split_test
-
-test_iPhone_6_Plus_8.0:
-	deviceName="iPhone 6 Plus" platformVersion=8.0 \
+test_iphone6_8.4_simulator:
+	deviceName='iPhone 6' platformVersion='8.4' platformName=iOS \
+		app='https://s3.amazonaws.com/appium/TestApp8.4.app.zip' \
 		make parallel_split_test
 
 parallel_split_test:
