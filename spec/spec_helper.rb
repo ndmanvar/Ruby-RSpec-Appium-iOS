@@ -26,7 +26,6 @@ RSpec.configure do | config |
   config.after(:each) do | example |
     sessionid = @driver.session_id
     @driver.driver_quit
-
     puts "SauceOnDemandSessionID=#{sessionid} job-name=#{example.full_description}"
 
 
