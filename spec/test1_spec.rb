@@ -1,6 +1,5 @@
 require_relative "spec_helper"
 
-#add actual test from Java Rspec
 describe "Appium Test" do
   it "should test the app" do
   	# populate text fields with values
